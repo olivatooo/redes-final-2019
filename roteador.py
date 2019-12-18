@@ -16,30 +16,11 @@ pty2 = driver.expor_porta_ao_linux(5)
 serial3 = driver.obter_porta(6)
 pty3 = driver.expor_porta_ao_linux(7)
 
-
-print('Conecte o RX da porta 2 com o TX da porta 3 e vice-versa.')
-print('Conecte o RX da porta 4 com o TX da porta 5 e vice-versa.')
-print('Conecte o RX da porta 6 com o TX da porta 7 e vice-versa.')
-print()
-print('Execute os seguintes comandos:')
 print()
 print('sudo slattach -vLp slip {}'.format(pty1.pty_name))
 print('sudo slattach -vLp slip {}'.format(pty2.pty_name))
 print('sudo slattach -vLp slip {}'.format(pty3.pty_name))
 print()
-print('sudo ifconfig sl0 192.168.123.1 pointopoint 192.168.122.1 mtu 1500')
-print('sudo ip route add 192.168.124.0/24 via 192.168.122.1')
-print('sudo ip route add 192.168.125.0/24 via 192.168.122.1')
-print()
-print('sudo ip netns add ns1')
-print('sudo ip link set sl1 netns ns1')
-print('sudo ip netns exec ns1 ifconfig sl1 192.168.124.1 pointopoint 192.168.122.1 mtu 1500')
-print('sudo ip netns exec ns1 ip route add 0.0.0.0/0 via 192.168.122.1')
-print()
-print('sudo ip netns add ns2')
-print('sudo ip link set sl2 netns ns2')
-print('sudo ip netns exec ns2 ifconfig sl2 192.168.125.1 pointopoint 192.168.122.1 mtu 1500')
-print('sudo ip netns exec ns2 ip route add 0.0.0.0/0 via 192.168.122.1')
 
 
 # Os endereços IP que especificamos abaixo são os endereços da outra ponta do
@@ -63,5 +44,6 @@ rede.definir_tabela_encaminhamento([
     ('192.168.124.0/24', '192.168.124.1'),
     ('192.168.125.0/24', '192.168.125.1'),
 ])
+
 
 asyncio.get_event_loop().run_forever()

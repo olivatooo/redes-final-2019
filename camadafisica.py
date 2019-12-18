@@ -32,7 +32,6 @@ class ZyboSerialDriver:
         return pty
 
     def enviar(self, port, data):
-        #print('send', port, data)
         for b in data:
             self.mm[port*4:port*4+4] = struct.pack('I', b)
 
@@ -107,8 +106,6 @@ class PTY:
         except OSError as e:
             if e.errno == errno.EIO:
                 pass      # a outra ponta está fechada
-            else:
-                raise e
 
     def registrar_recebedor(self, callback):
         """
@@ -121,4 +118,3 @@ class PTY:
         Envia dados para a linha serial
         """
         os.write(self.pty, dados)
-
