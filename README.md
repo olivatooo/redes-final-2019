@@ -3,10 +3,10 @@
 Este repositório contém uma implementação simplificada de um roteador que utiliza os protolocos IP e SLIP para comunicação. A implementação física do roteador foi feita em uma placa Zybo Z7-20, para mais informações veja o arquivo `HowTo.md`.
 Grupo que realizou esse projeto:
 * Esther Hoffmann
-* @Danchlax
-* @igmagollo
+* [@Danchlax](https://github.com/Danchlax)
+* [@igmagollo](https://github.com/igmagollo)
 
-Toda a implementação from scratch foi feita com orientação, paciência e ajuda de @thotypous.
+Toda a implementação from scratch foi feita com orientação, paciência e ajuda de [@thotypous](https://github.com/thotypous)
 
 # IP
 
